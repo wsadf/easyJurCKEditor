@@ -1,0 +1,7 @@
+.highlighted-quote {
+    border-left: 4px solid #ffcc00;
+    padding-left: 16px;
+    font-style: italic;
+    margin: 16px 0;
+    color: #333;
+}

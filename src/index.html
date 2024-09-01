@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CKEditor 5 Plugin Test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.css">
+    <style>
+.highlighted-quote {
+    border-left: 4px solid #ffcc00;
+    padding-left: 16px;
+    font-style: italic;
+    margin: 16px 0;
+    color: #333;
+}
+
+    </style>
+    <!-- Link atualizado para o CKEditor 5 Classic Build -->
+    <script type="importmap">
+        {
+            "imports": {
+                "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.js",
+                "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.0.0/"
+            }
+        }
+    </script>
+    <!-- Inclua o seu plugin após o CKEditor -->
+    <script src="./plugin.js"></script>
+</head>
+<body>
+    <h1>CKEditor 5 Plugin Test</h1>
+    <textarea name="content" id="editor"></textarea>
+
+    <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Paragraph,
+            Bold,
+            Italic,
+            Font
+        } from 'ckeditor5';
+        ClassicEditor
+                .create( document.querySelector( '#editor' ), {
+                    plugins: [ Essentials, Paragraph, Bold, Italic, Font ],
+                    toolbar: [
+						'highlightedQuote','undo', 'redo', '|', 'bold', 'italic', '|',
+						'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                    ]
+                } )
+                .then( editor => {
+                    window.editor = editor;
+                } )
+                .catch( error => {
+                    console.error( error );
+                } );
+    </script>
+</body>
+</html>
