@@ -16,7 +16,6 @@
 }
 
     </style>
-    <!-- Link atualizado para o CKEditor 5 Classic Build -->
     <script type="importmap">
         {
             "imports": {
@@ -25,7 +24,6 @@
             }
         }
     </script>
-    <!-- Inclua o seu plugin após o CKEditor -->
     <script src="./plugin.js"></script>
 </head>
 <body>
@@ -51,6 +49,7 @@
                 } )
                 .then( editor => {
                     window.editor = editor;
+                    console.log(Array.from(editor.ui.componentFactory.names()));
                 } )
                 .catch( error => {
                     console.error( error );
